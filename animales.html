@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
+        .animal{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(97, 96, 96);
+            display: flex;
+            align-items: center;
+        }
+        .verde{
+            height: 100%;
+            width: 400px;            
+        }
+        img{
+            width: 450px;
+            height: 500px;
+            margin-left: -230px;
+        }
+        h1{
+           font-size: 40px;
+        }
+        .cont{
+            height: 90%;
+            width: 600px;
+            margin-left: 70px;
+        }
+        audio{
+            margin-top: 30px;
+        }
+        ul{
+            width: 100%;
+            height: 80px;
+            justify-content: center;
+            list-style: none;
+            align-items: center;
+            display: flex;
+            margin-top: -10px;
+            margin-bottom: -10px;
+            background-color: rgb(91, 219, 17);
+        }
+        li{
+            margin:0px 100px;
+        }
+        li img{
+            margin: 0;
+            width: 30px;
+            height: 30px;
+        }
+        li:hover,button:hover{
+            cursor: pointer;
+        }
+        button{
+            padding: 10px 30px;
+            margin-top: 30px;
+            background-color: transparent;
+            border:1px solid white;
+            color: white;
+            border-radius: 25px;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li id="a1" onclick="recar('jirafa')" style="margin-left: 0;"><img  src="mov/icon1.png" alt=""></li>
+            <li id= "a2"onclick="recar('ele')"><img src="mov/icon2.png" alt=""></li>
+            <li id= "a3" onclick="recar('leon')"><img src="mov/icon3.png" alt=""></li>
+            <li id= "a4" onclick="recar('lemur')"><img src="mov/icon4.png" alt=""></li>
+        </ul>
+    </nav>
+    <div class="animal ">
+        
+        <div id="banner" class="verde animate__animated animate__bounceInLeft" ></div>
+        <img id="info" class="animate__animated animate__fadeInUp" alt="">
+        <div class="cont animate__animated animate__zoomIn">
+            <h1 id="nombre">Animal: Jirafa</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos sit perspiciatis modi commodi quis! Ratione, id quisquam incidunt, soluta corporis beatae non similique error expedita aut recusandae accusantium voluptatibus atque?</p>
+            <div id="video"></div>
+            <div id="audio"></div>               
+           <button onclick="history.go(-1)">Regresar</button>
+        </div>
+    </div>
+</body>
+<script>
+    var animal = localStorage.getItem("animal");
+    window.onload = publicar(animal);
+
+
+
+
+    function publicar(x){
+        var banner = document.getElementById('banner');
+        var nombre = document.getElementById('nombre');
+        var info = document.getElementById('info');
+        var video = document.getElementById('video');
+        var audio = document.getElementById('audio');
+        x = animal;
+        switch (x){
+            case 'jirafa':
+                banner.style.backgroundColor = "#cab121";
+                nombre.innerHTML = "Animal: Jirafa";
+                video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/gWGIp1O7kWA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                audio.innerHTML = '<audio controls><source src="mov/jirafa.mp3" type="audio/mpeg"> </audio>';
+                info.src = 'mov/jirafa.png';
+                var ani = document.getElementById("a1");
+                ani.style.filter = "invert(40%)";
+                break;
+            case 'ele':
+                banner.style.backgroundColor = "gray";
+                nombre.innerHTML = "Animal: Elefante";
+                video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/s3xQhBeA3F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                audio.innerHTML = '<audio controls><source src="mov/ele.mp3" type="audio/mpeg"> </audio>';
+                info.src = 'mov/elefante.png';
+                var ani = document.getElementById("a2");
+                ani.style.filter = "invert(40%)";
+                break;
+
+            case 'leon':
+                banner.style.backgroundColor = "orange";
+                nombre.innerHTML = "Animal: León";
+                video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/ZSHHqt6qQ4c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                audio.innerHTML = '<audio controls><source src="mov/leon.mp3" type="audio/mpeg"> </audio>';
+                info.src = 'mov/leon.png';
+                var ani = document.getElementById("a3");
+                ani.style.filter = "invert(40%)";
+                break;
+
+            case 'lemur':
+                banner.style.backgroundColor = "black";
+                nombre.innerHTML = "Animal: Lémur";
+                video.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/t7cCZDt7_nE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                audio.innerHTML = '<audio controls><source src="mov/lemur.mp3" type="audio/mpeg"> </audio>';
+                info.src = 'mov/lemur.png';
+                var ani = document.getElementById("a4");
+                ani.style.filter = "invert(40%)";
+                break;    
+            default:
+                alert('adios');
+                break;
+        }
+    }
+    function recar(t){
+        localStorage.setItem("animal",t);
+        location.reload();
+    }
+</script>
+</html>

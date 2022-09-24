@@ -1,0 +1,637 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="juego.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+    </head>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .background{
+                width: 100%;
+                height: 100vh;
+                background-image: url('selva.jpg');
+                background-size: cover;
+                filter: brightness(0.5);
+            }
+            .inicio{
+                width: 100%;
+                color: aliceblue;
+            }
+            ul{
+                width: 90%;
+                justify-content: center;
+                list-style: none;
+                display: flex;
+            }
+            li{
+                margin:20px 30px;
+                font-size: 20px;
+                padding: 10px 30px;
+                border-radius: 25px;
+            }
+            li:hover{
+                cursor: pointer;
+                background-color: rgb(145, 145, 145);
+                transition: 0.4s;
+            }
+            .background,.inicio,.animales,.juego,.titular,.puntaje,.comentarios{
+                position: absolute;
+            }
+            .relative{
+                position: relative;
+            }
+            .portada{
+                width: 100%;
+                display: flex;
+                height: 500px;
+                margin-top: 50px;
+            }
+            .pres{
+                margin: 150px 100px;
+            }
+            h1{
+                margin: 0;
+                font-size: 40px;
+            }
+            button{
+                margin: 30px 0px;
+                padding: 10px 30px;
+                background-color: transparent;
+                color: white;
+                border: 0;
+                font-weight: bold;
+                border-radius: 25px;
+
+            }
+            .btn-activo,button:hover{
+                background-color: white;
+                padding: 15px 30px;
+                color: black;
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            img{
+                width: 400px;
+                height: auto;
+            }
+            .zoo-info{
+                margin-top:150px;
+                margin-left: 50px;
+                width: 400px;
+                line-height: 25px;
+            }
+            .animales{
+                background-color: #625e4f;
+                width: 100%;  
+                height: 80vh;
+                margin-top: 95vh;
+
+            }
+            .circle{
+                width: 70px;
+                height: 70px;
+                margin-top: 15px;
+                border-radius: 50px;
+                background-color: #625e4f;
+            }
+            .banner{
+                width: 100%; justify-content: center; display: flex; color: white;
+            }
+            .circle:hover{
+                cursor: pointer;
+            }
+            .circle h1{
+                margin-left: 23px;
+                margin-top: 3px;
+            }
+            .carrusel,.animal div{
+                display: flex;
+                justify-content: center;
+            }
+            .carrusel{
+                margin:60px 100px;
+                color: white;
+               display: none; 
+            }
+            .animal{
+                width: 300px;
+                margin: 20px;
+                text-align: left;
+            }
+            .foto,.grass{
+                width: 250px;
+                height: 180px;
+                border: 5px solid white;
+                border-radius: 25px;
+                margin-bottom: 10px;
+            }
+
+            .animal button{
+                margin-top: 5px;
+                border: 2px solid white;
+            }
+            .juego{
+                height: 100vh;
+                margin-top: 170vh;
+                background: #584040;
+
+                width: 100%;
+                align-items: center;
+            }
+            .puntaje{
+                height: 100vh;
+                margin-top: 270vh;
+                background: #a2a86e;
+                width: 100%;
+            }
+            #estrella {
+            margin: 50px 0;
+            position: relative;
+            display: block;
+            color: #77774d;
+            width: 0px;
+            height: 0px;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid ;
+            border-left: 100px solid transparent;
+            transform: rotate(35deg);
+            margin-left: 20px;
+        }
+        #estrella:before {
+            border-bottom: 80px solid ;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: -45px;
+            left: -65px;
+            display: block;
+            content: '';
+            transform: rotate(-35deg);
+        }
+        #estrella:after {
+            position: absolute;
+            display: block;
+            top: 3px;
+            left: -105px;
+            width: 0px;
+            height: 0px;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid ;
+            border-left: 100px solid transparent;
+            transform: rotate(-70deg);
+            content: '';
+        }
+        .estrellas{
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            margin-top: 100px;
+            display: flex;
+        }
+        .comentarios{
+            width: 100%;
+            height: 50vh;
+            background-color: black;
+            margin-top: 370vh;
+        }
+        .derechos{
+            margin-top: 120px;
+            color: white;
+        }
+        </style>
+    <body>
+
+     
+
+   <section>
+        <div class="background"></div>
+        
+        <div class="inicio">
+            <nav>
+                <ul>
+                    <li>Inicio</li>
+                    <li>Animales</li>
+                    <li>Juega con ellos</li>
+                    <li>Puntéanos</li>
+                    <li>Créditos</li>
+                </ul>
+            </nav>
+
+            <div class="portada animate__animated animate__zoomInRight" >
+                <div class="pres">
+                    <p>Pavel Prieto</p>
+                    <h1>Zoólogico Virtual</h1>
+                    <button class="btn-activo">Mirar animales</button>
+                    <button>Juegos</button>
+                </div>
+
+                <img src="colibri.png" alt="">
+                <div class="zoo-info">
+                    <h3>¿Qué es un zoológico?</h3>
+                    <p>El zoológico es un parque donde se encuentran reunidas numerosas especies animales con fines educativos y de preservación. En general, los jardines zoológicos recrean ambientes semejantes a los hábitats naturales de los animales que allí viven.</p>
+                </div>
+               
+            </div>
+            <div class="banner"><div class="circle animate__animated animate__slideInUp" >
+                <h1 class="">v</h1>
+            </div></div>
+        </div>
+   
+    </section>
+
+    <section>
+        
+        <div class="animales">
+           
+            <div class="carrusel animate__animated animate__zoomIn">
+                <div class="animal">
+                     <img class="foto" src="jirafa.jpg" alt="">
+                    <center>
+                        <h2>Jirafa</h2>
+                        <p>Las jirafas son los mamíferos más altos del mundo, gracias a sus enormes patas y largos cuellos.</p>
+                        <button onclick="verMas('jirafa')">Ver más</button>
+                    </center>
+
+                </div>
+
+                <div class="animal">
+                    <img class="foto" src="elefante.jpg" alt="">
+                   <center>
+                       <h2>Elefante</h2>
+                       <p>Son los animales terrestres más grandes del mundo que puede llegar a pesar hasta 7,000-7.500 kg.</p>
+                       <button onclick="verMas('ele')">Ver más</button>
+                   </center>
+
+               </div>
+
+               <div class="animal">
+                <img class="foto" src="leon.jpg" alt="">
+               <center>
+                   <h2>León</h2>
+                   <p>Los leones son los únicos felinos que viven en manada. Las unidades familiares pueden incluir hasta tres machos.</p>
+                   <button onclick="verMas('leon')">Ver más</button>
+               </center>
+
+           </div>
+
+           <div class="animal">
+            <img class="foto" src="lemur.jpg" alt="">
+           <center>
+               <h2>Lémur</h2>
+               <p>Representan a unos de los primates más pequeños del mundo, como el Microcebus myoxinuso con tan solo 30 g de peso.</p>
+               <button onclick="verMas('lemur')">Ver más</button>
+           </center>
+
+       </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <section>
+      
+        <div class="juego">
+           <center><h1 style="margin-top: 100px; color: white;">Juego del zorrito</h1><br>
+            <i style="color:white; font-size: 20px;">Pulse la letra c</i>
+        </center> 
+   
+   <div class="consola" style="margin-top: 70px;">
+    <div class="contenedor">
+
+        <div class="suelo"></div>
+        
+        <div class="dino dino-corriendo"></div>
+
+        <div class="score">0</div>
+
+    </div>
+
+    <div class="game-over">PERDISTE :C</div>
+
+        </div> 
+   </div>
+ 
+    </section>
+   
+<section>
+    <div class="puntaje">
+       <center><h1 style="color: white; margin-top:150px;">Puntéanos:</h1></center> 
+        <div class="estrellas">
+            <div onclick="colores(0)" class="puntas" id="estrella"></div>
+            <div onclick="colores(1)" class="puntas" id="estrella"></div>
+            <div onclick="colores(2)" class="puntas" id="estrella"></div>
+            <div onclick="colores(3)" class="puntas" id="estrella"></div>
+            <div onclick="colores(4)" class="puntas" id="estrella"></div>
+        </div>
+    </div>
+</section>
+   
+<section>
+    <div class="comentarios">
+        <div class="derechos">
+            <center>
+                <h1>Realizado por:</h1>
+                <h2>Pavel Emiliano Prieto Acosta</h2>
+                <i>Programación Web - Tecnológico de Chilpancingo</i> 
+            </center>
+
+        </div>
+          
+    </div>
+</section>
+  
+    </body>
+    <script>
+        let animado = document.querySelectorAll(".carrusel");
+
+        function mostrarScroll(){
+            let scrollTop = document.documentElement.scrollTop;
+            for(var i = 0; i < animado.length; i++){
+                let alturaAnimado = animado[i].offsetTop;
+                if(alturaAnimado + 300 <scrollTop){
+                    animado[i].style.display="flex";
+                }
+                if(alturaAnimado +800 <scrollTop){
+                    Init();
+                }
+            }
+        }
+
+        window.addEventListener('scroll',mostrarScroll);
+
+
+    //****** GAME LOOP ********//
+    
+    var time = new Date();
+    var deltaTime = 0;
+    
+    
+    
+    function Init() {
+        time = new Date();
+        Start();
+        Loop();
+    }
+    
+    function Loop() {
+        deltaTime = (new Date() - time) / 1000;
+        time = new Date();
+        Update();
+        requestAnimationFrame(Loop);
+    }
+    
+    //****** GAME LOGIC ********//
+    
+    var sueloY = 22;
+    var velY = 0;
+    var impulso = 900;
+    var gravedad = 2500;
+    
+    var dinoPosX = 42;
+    var dinoPosY = sueloY; 
+    
+    var sueloX = 0;
+    var velEscenario = 1280/3;
+    var gameVel = 1;
+    var score = 0;
+    
+    var parado = false;
+    var saltando = false;
+    
+    var tiempoHastaObstaculo = 2;
+    var tiempoObstaculoMin = 0.7;
+    var tiempoObstaculoMax = 1.8;
+    var obstaculoPosY = 16;
+    var obstaculos = [];
+    
+    var tiempoHastaNube = 0.5;
+    var tiempoNubeMin = 0.7;
+    var tiempoNubeMax = 2.7;
+    var maxNubeY = 270;
+    var minNubeY = 100;
+    var nubes = [];
+    var velNube = 0.5;
+    
+    var contenedor;
+    var dino;
+    var textoScore;
+    var suelo;
+    var gameOver;
+    
+    function Start() {
+        gameOver = document.querySelector(".game-over");
+        suelo = document.querySelector(".suelo");
+        contenedor = document.querySelector(".contenedor");
+        textoScore = document.querySelector(".score");
+        dino = document.querySelector(".dino");
+        document.addEventListener("keydown", HandleKeyDown);
+    }
+    
+    function Update() {
+        if(parado) return;
+        
+        MoverDinosaurio();
+        MoverSuelo();
+        DecidirCrearObstaculos();
+        DecidirCrearNubes();
+        MoverObstaculos();
+        MoverNubes();
+        DetectarColision();
+    
+        velY -= gravedad * deltaTime;
+    }
+    
+    function HandleKeyDown(ev){
+        if(ev.keyCode == 67){
+            Saltar();
+        }
+    }
+    
+    function Saltar(){
+        if(dinoPosY === sueloY){
+            saltando = true;
+            velY = impulso;
+            dino.classList.remove("dino-corriendo");
+        }
+    }
+    
+    function MoverDinosaurio() {
+        dinoPosY += velY * deltaTime;
+        if(dinoPosY < sueloY){
+            
+            TocarSuelo();
+        }
+        dino.style.bottom = dinoPosY+"px";
+    }
+    
+    function TocarSuelo() {
+        dinoPosY = sueloY;
+        velY = 0;
+        if(saltando){
+            dino.classList.add("dino-corriendo");
+        }
+        saltando = false;
+    }
+    
+    function MoverSuelo() {
+        sueloX += CalcularDesplazamiento();
+        suelo.style.left = -(sueloX % contenedor.clientWidth) + "px";
+    }
+    
+    function CalcularDesplazamiento() {
+        return velEscenario * deltaTime * gameVel;
+    }
+    
+    function Estrellarse() {
+        dino.classList.remove("dino-corriendo");
+        dino.classList.add("dino-estrellado");
+        parado = true;
+    }
+    
+    function DecidirCrearObstaculos() {
+        tiempoHastaObstaculo -= deltaTime;
+        if(tiempoHastaObstaculo <= 0) {
+            CrearObstaculo();
+        }
+    }
+    
+    function DecidirCrearNubes() {
+        tiempoHastaNube -= deltaTime;
+        if(tiempoHastaNube <= 0) {
+            CrearNube();
+        }
+    }
+    
+    function CrearObstaculo() {
+        var obstaculo = document.createElement("div");
+        contenedor.appendChild(obstaculo);
+        obstaculo.classList.add("cactus");
+        if(Math.random() > 0.5) obstaculo.classList.add("cactus2");
+        obstaculo.posX = contenedor.clientWidth;
+        obstaculo.style.left = contenedor.clientWidth+"px";
+    
+        obstaculos.push(obstaculo);
+        tiempoHastaObstaculo = tiempoObstaculoMin + Math.random() * (tiempoObstaculoMax-tiempoObstaculoMin) / gameVel;
+    }
+    
+    function CrearNube() {
+        var nube = document.createElement("div");
+        contenedor.appendChild(nube);
+        nube.classList.add("nube");
+        nube.posX = contenedor.clientWidth;
+        nube.style.left = contenedor.clientWidth+"px";
+        nube.style.bottom = minNubeY + Math.random() * (maxNubeY-minNubeY)+"px";
+        
+        nubes.push(nube);
+        tiempoHastaNube = tiempoNubeMin + Math.random() * (tiempoNubeMax-tiempoNubeMin) / gameVel;
+    }
+    
+    function MoverObstaculos() {
+        for (var i = obstaculos.length - 1; i >= 0; i--) {
+            if(obstaculos[i].posX < -obstaculos[i].clientWidth) {
+                obstaculos[i].parentNode.removeChild(obstaculos[i]);
+                obstaculos.splice(i, 1);
+                GanarPuntos();
+            }else{
+                obstaculos[i].posX -= CalcularDesplazamiento();
+                obstaculos[i].style.left = obstaculos[i].posX+"px";
+            }
+        }
+    }
+    
+    function MoverNubes() {
+        for (var i = nubes.length - 1; i >= 0; i--) {
+            if(nubes[i].posX < -nubes[i].clientWidth) {
+                nubes[i].parentNode.removeChild(nubes[i]);
+                nubes.splice(i, 1);
+            }else{
+                nubes[i].posX -= CalcularDesplazamiento() * velNube;
+                nubes[i].style.left = nubes[i].posX+"px";
+            }
+        }
+    }
+    
+    function GanarPuntos() {
+        score++;
+        textoScore.innerText = score;
+        if(score == 5){
+            gameVel = 1.2;
+            contenedor.classList.add("mediodia");
+        }else if(score == 10) {
+            gameVel = 1.3;
+            contenedor.classList.add("tarde");
+        } else if(score == 20) {
+            gameVel = 1.4;
+            contenedor.classList.add("noche");
+        }
+        suelo.style.animationDuration = (3/gameVel)+"s";
+    }
+    
+    function GameOver() {
+        Estrellarse();
+        gameOver.style.display = "block";
+    }
+    
+    function DetectarColision() {
+        for (var i = 0; i < obstaculos.length; i++) {
+            if(obstaculos[i].posX > dinoPosX + dino.clientWidth) {
+                //EVADE
+                break; //al estar en orden, no puede chocar con más
+            }else{
+                if(IsCollision(dino, obstaculos[i], 10, 30, 15, 20)) {
+                    GameOver();
+                }
+            }
+        }
+    }
+    
+    function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
+        var aRect = a.getBoundingClientRect();
+        var bRect = b.getBoundingClientRect();
+    
+        return !(
+            ((aRect.top + aRect.height - paddingBottom) < (bRect.top)) ||
+            (aRect.top + paddingTop > (bRect.top + bRect.height)) ||
+            ((aRect.left + aRect.width - paddingRight) < bRect.left) ||
+            (aRect.left + paddingLeft > (bRect.left + bRect.width))
+        );
+    }
+    
+    
+   
+   </script>
+   <script>
+    var estrella = document.getElementById("estrella");
+    var ver = true;
+
+    function colores(x){
+        let puntas = document.querySelectorAll(".puntas");
+        for(var j = 0; j <puntas.length; j++){
+            puntas[j].style.color = "#77774d";
+        }
+        for(var i = 0; i <=x; i++){
+            puntas[i].style.color = "gold";  
+        }
+
+    }
+    function verMas(t){
+        localStorage.setItem("animal",t);
+        window.location.assign("animales.html");
+    }
+   </script>
+    </html>
