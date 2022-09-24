@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Zoológico</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -96,7 +96,7 @@
             .animales{
                 background-color: #625e4f;
                 width: 100%;  
-                height: 80vh;
+                height: 100vh;
                 margin-top: 95vh;
 
             }
@@ -224,11 +224,11 @@
         <div class="inicio">
             <nav>
                 <ul>
-                    <li>Inicio</li>
-                    <li>Animales</li>
-                    <li>Juega con ellos</li>
-                    <li>Puntéanos</li>
-                    <li>Créditos</li>
+                    <li onclick="mover(0)">Inicio</li>
+                    <li onclick="mover(600)">Animales</li>
+                    <li onclick="mover(1200)">Juega con ellos</li>
+                    <li onclick="mover(2000)">Puntéanos</li>
+                    <li onclick="mover(3000)">Créditos</li>
                 </ul>
             </nav>
 
@@ -236,8 +236,8 @@
                 <div class="pres">
                     <p>Pavel Prieto</p>
                     <h1>Zoólogico Virtual</h1>
-                    <button class="btn-activo">Mirar animales</button>
-                    <button>Juegos</button>
+                    <button class="btn-activo" onclick="mover(600)" >Mirar animales</button>
+                    <button onclick="mover(1200)">Juegos</button>
                 </div>
 
                 <img src="colibri.png" alt="">
@@ -303,7 +303,7 @@
 
     </section>
     
-    <section>
+    <section id="#elemento">
       
         <div class="juego">
            <center><h1 style="margin-top: 100px; color: white;">Juego del zorrito</h1><br>
@@ -633,5 +633,10 @@
         localStorage.setItem("animal",t);
         window.location.assign("animales.html");
     }
+
+    function mover(x){
+        scrollTo(0,x)
+    }
+    
    </script>
     </html>
